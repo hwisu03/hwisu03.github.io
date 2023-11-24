@@ -256,11 +256,11 @@ print(f'{X_selected[:5] = }')
 -GenericUnivariateSelect(): 단변량 피쳐 선택기<br>
 💠 Scikit-Learn 제공 피쳐 선택 기준<br>
 <br>
--f_classif: ANOVA F-value 분류<br>
--mutual_info_classif: 상호정보량(mutual information) 분류<br>
--chi2: 카이제곱 분류<br>
--f_regression: F-value 회귀<br>
--mutual_info_regression: 상호정보량(mutual information) 회귀<br>
+f_classif: ANOVA F-value 분류<br>
+mutual_info_classif: 상호정보량(mutual information) 분류<br>
+chi2: 카이제곱 분류<br>
+f_regression: F-value 회귀<br>
+mutual_info_regression: 상호정보량(mutual information) 회귀<br>
 
 ```python
 from sklearn.feature_selection import SelectKBest
