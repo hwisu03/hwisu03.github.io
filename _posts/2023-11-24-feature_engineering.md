@@ -39,19 +39,19 @@
 -원래 데이터 특징을 잘 설명해주는 성분을 추출하기 이하여 고차원 공간의 표본들을 선형 연관성이 없는 저차원 공간으로 변환하는 기법<br>
 -행의 수와 열의 수가 같은 정방행렬에서만 사용<br>
 <br>
-선형판별분석(Linear Discriminant Analysis, LDA)<br>
+선형 판별 분석(Linear Discriminant Analysis, LDA)<br>
 -데이터의 Target값 클래스끼리 최대한 분리할 수 있는 축을 찾음<br>
 -특정 공간상에서 클래스 분리를 최대화하는 축을 찾기 위해 클래스 간 분산(between-class scatter)과 클래스 내부 분산(within-class scatter)의 비율을 최대화하는 방식으로 차원을 축소<br>
 <br>
 특이값 분해(Singular Value Decomposition)<br>
 -M X N 차원의 행렬데이터에서 특이값을 추출하고 이를 통해 주어진 데이터 세트를 효과적으로 축약할 수 있는 기법<br>
 <br>
-요인분석(Factor Analysis)<br>
+요인 분석(Factor Analysis)<br>
 -데이터 안에 관찰할 수 있는 잠재적인 변수(Latent Variable)가 존재한다고 가정<br>
 -모형을 세운 뒤 관찰 가능한 데이터를 이용하여 해당 잠재 요인을 도출하고 데이터 안의 구조를 해석하는 기법<br>
 -주로 사회과학이나 설문 조사 등에서 많이 활용<br>
 <br>
-독립성분분석(Independent Component Analysis)<br>
+독립 성분 분석(Independent Component Analysis)<br>
 -주성분 분석과는 달리 다변량의 신호를 통계적으로 독립적인 하부성분으로 분리하여 차원을 축소하는 기법<br>
 -독립 성분의 분포는 비정규 분포를 따르게 되는 차원축소 기법<br>
 <br>
@@ -65,7 +65,7 @@
 원 데이터의 분산(variance)을 최대한 보존하면서 서로 직교하는 새 기저(축)를 찾아, 고차원 공간의 표본들을 선형 연관성이 없는 저차원 공간으로 변환하는 기법<br>
 PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변수, 즉 주성분(principal component, PC)들을 만들어 냄<br>
 주성분의 개수를 증가시킴에 따라 원 데이터의 분산의 보존수준이 높아짐<br>
-💠 PCA 절차<br>
+<br>💠 PCA 절차
 <br>
 학습 데이터셋에서 분산이 최대인 축(axis)을 찾음<br>
 첫번째 축과 직교(orthogonal)하면서 분산이 최대인 두 번째 축을 찾음<br>
@@ -74,12 +74,11 @@ PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변
 <br>
 ## 2-3 선형판별분석
 💠 선형판별분석(Linear Discriminant Analysis, LDA)<br>
-<br>
 입력 데이터 세트를 저차원 공간으로 투영(projection)해 차원을 축소하는 기법<br>
 데이터의 Target값 클래스끼리 최대한 분리할 수 있는 축을 찾음 → 지도 학습<br>
 PCA는 Target값을 사용하지 않으므로 비지도 학습<br>
-💠 LDA 절차<br>
 <br>
+💠 LDA 절차<br>
 특정 공간상에서 클래스 분리를 최대화하는 축을 찾기 위해 클래스 간 분산(between-class scatter)과 클래스 내부 분산(within-class scatter)의 비율을 최대화하는 방식으로 차원을 축소<br>
 SVM 같은 다른 분류 알고리즘을 적용하기 전에 차원을 축소시키는 데 사용<br>
 ## 2-4. Scikit-Learn으로 PCA와 LDA 수행하기
