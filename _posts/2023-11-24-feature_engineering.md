@@ -3,6 +3,13 @@
 데이터모델(특히, 인공지능)에서 예측을 수행하는 데 사용되는 입력변수를 의미한다. <br>
 통계학에서는 독립변수라고 한다. <br>
 <br>
+상관관계: 독립변수<->종속변수<br>
+인과관계: 독립변수->종속변수<br>
+인과관계가 되기 위한 조건<br>
+1. x, y가 상관관계<br>
+2. 시간적 선후관계（x가 먼저)<br>
+3. 비허위적 관계(non-spurious)<br>
+<br>
 💠피쳐의 유형<br>
 -속성에 따라 범주형(범주나 순위가 있는 변수), 수치형(수치로 표현되는 변수)로 나뉜다.
 <br>
@@ -15,21 +22,23 @@
 <br>
 
 ## 1-2. 피쳐 엔지니어링(Feature Engineering)
-피쳐 엔지니어링은 머신러닝 알고리즘의 성능을 향상시키기 위하여 데이터에 대한 도메인 지식을 활용하여 변수를 조합하거나 새로운 변수를 만드는 과정을 말한다.
+피쳐 엔지니어링은 머신러닝 알고리즘의 성능을 향상시키기 위하여 데이터에 대한 도메인 지식을 활용하여 변수를 조합하거나 새로운 변수를 만드는 과정을 말한다.<br>
+피쳐 추출, 피쳐 선택 모두 피쳐의 개수를 줄이는 방법이다.<br>
 <br>
 <br>
-💠피쳐추출(feature extraction)
+💠피쳐추출(feature extraction): 새로운 피쳐를 만드는 방법<br>
 -피쳐들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
 -고차원의 원본 피쳐 공간을 저차원의 새로운 피쳐 공간으로 투영<br>
 -PCA(주성분 분석), LDA(선형 판별 분석) 등<br>
 
-💠피쳐 선택(feature selection)<br>
+💠피쳐 선택(feature selection): 피쳐의 수를 줄이는 방법<br>
 -피쳐 중 타겟에 가장 관련성이 높은 피쳐만을 선정하여 피쳐의 수를 줄이는 방법<br>
 -관련없거나 중복되는 피쳐들을 필터링하고 간결한 subset을 생성<br>
 -모델 단순화, 훈련 시간 축소, 차원의 저주 방지, 과적합(Over-fitting)을 줄여 일반화해주는 장점이 있음<br>
 -Filter, Wrapper, Embedded 메서드<br>
 ![png](https://drive.google.com/uc?id=1gjZXN4-EPa_tRuIkgRismbiFpfs9ODiN)
-![png](https://drive.google.com/uc?id=1m9NRuVkNnJKL0gjt7lHR8ABRJ49uD0u6)
+![png](https://drive.google.com/uc?id=1m9NRuVkNnJKL0gjt7lHR8ABRJ49uD0u6)<br>
+사진을 보면 Feature Engineering의 방법이 엄청나게 많은데, 이는 dominant한 방법이 없다는 것을 뜻한다.<br>
 # 2. 피쳐 추출
 ## 2-1.피쳐 추출(Feature Extraction)<br>
 변수들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
