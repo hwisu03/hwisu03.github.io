@@ -308,6 +308,21 @@ print('Selected features: ', [X_names[i] for i in sel_chi2.get_support(indices=T
     Selected features:  ['petal length (cm)', 'petal width (cm)']
     
 
+## 3-2. 래퍼 기법(Wrapper Method)
+예측 정확도 측면에서 가장 좋은 성능을 보이는 하위 집합을 선택하는 기법<br>
+검색 가능한 방법으로 하위 집합을 반복해서 선택하여 테스트하는 것이므로 탐욕 알고리즘(Greedy Algorithm)에 속함<br>
+반복하여 선택하는 방법으로 시간이 오래 걸리고 부분집합의 수가 기하급수적으로 늘어 과적합의 위험이 발생할 수 있음<br>
+일반적으로 래퍼 방법은 필터 방법보다 예측 정확도가 높음<br>
+<br>
+💠 변수 선택을 위한 알고리즘<br>
+전진 선택법(Forward Selection): 모형을 가장 많이 향상시키는 변수를 하나씩 점진적으로 추가하는 방법<br>
+후진 제거법(Backward Elimination): 모두 포함된 상태에서 시작하여 가장 적은 영향을 주는 변수부터 하나씩 제거<br>
+단계적 방법(Stepwise Method): 전진선택과 후향제거의 결합/ 각 단계에서 최상의 속성을 선택하고 나머지 속성 중 최악의 속성을 제거하는 과정을 실행<br>
+의사결정트리<br>
+<br>
+💠 래퍼기법의 종류<br>
+RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용
+SFS(Sequential Feature Selection): 그리디 알고리즘(Greedy Algorithm)으로 빈 부분 집합에서 특성 변수를 하나씩 추가하는 방법 /전진 선택, 후진 제거 사용<br>
 
 ```python
 # RFE(Recursive Feature Elimination) 적용
@@ -399,7 +414,10 @@ print(f'{X_selected[:5] = }')
            [1.4, 0.2]])
     
 
-
+## 3-3. 임베디드 기법(Embedded Method)
+임베디드 기법은 모델의 정확도에 기여하는 변수를 학습함<Br>
+SelectFromModel<br>
+  의사결정나무 기반 알고리즘에서 변수를 선택하는 기법<br>
 ```python
 from sklearn.feature_selection import SelectFromModel
 from sklearn import tree
