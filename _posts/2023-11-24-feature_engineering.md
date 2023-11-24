@@ -190,14 +190,14 @@ plt.show()
 
 # 3. 피쳐 선택 기법
 종속변수 활용여부에 따라<br>
-Supervised: 종속변수를 활용하여 선택<br>
-Unsupervised: 독립변수들만을 이용해서 선택(종속변수인 y가 없음)<br>
+-Supervised: 종속변수를 활용하여 선택<br>
+-Unsupervised: 독립변수들만을 이용해서 선택(종속변수인 y가 없음)<br>
 <br>
 선택 메커니즘에 따라<br>
-Filter: 통계적인 방법으로 선택<br>
-Wrapper: 모델을 활용하여 선택<br>
-Embedded: 모델 훈련 과정에서 자동으로 선택<br>
-Hybrid: Filter + Wrapper<br>
+-Filter: 통계적인 방법으로 선택<br>
+-Wrapper: 모델을 활용하여 선택<br>
+-Embedded: 모델 훈련 과정에서 자동으로 선택<br>
+-Hybrid: Filter + Wrapper<br>
 <br>
 ## 3-1. 필터기법(Filter Method)
 모든 피쳐 배정 -> 최적의 subset 선택 -> 학습 알고리즘 -> 성능평가<br>
@@ -248,19 +248,19 @@ print(f'{X_selected[:5] = }')
     
 💠 Scikit-Learn 제공 피쳐 선택 메서드<br>
 <br>
-SelectKBest(): 고정된 k개의 피쳐 선택기<br>
-SelectPercentile(): 분위수 기반 선택기<br>
-SelectFpr(): False positive rate 기반 선택기<br>
-SelectFdr(): 추정된 False discovery rate 기반 선택기<br>
-SelectFwe(): familiy-wise error rate 기반 선택기<br>
-GenericUnivariateSelect(): 단변량 피쳐 선택기<br>
+-SelectKBest(): 고정된 k개의 피쳐 선택기<br>
+-SelectPercentile(): 분위수 기반 선택기<br>
+-SelectFpr(): False positive rate 기반 선택기<br>
+-SelectFdr(): 추정된 False discovery rate 기반 선택기<br>
+-SelectFwe(): familiy-wise error rate 기반 선택기<br>
+-GenericUnivariateSelect(): 단변량 피쳐 선택기<br>
 💠 Scikit-Learn 제공 피쳐 선택 기준<br>
 <br>
-f_classif: ANOVA F-value 분류<br>
-mutual_info_classif: 상호정보량(mutual information) 분류<br>
-chi2: 카이제곱 분류<br>
-f_regression: F-value 회귀<br>
-mutual_info_regression: 상호정보량(mutual information) 회귀<br>
+-f_classif: ANOVA F-value 분류<br>
+-mutual_info_classif: 상호정보량(mutual information) 분류<br>
+-chi2: 카이제곱 분류<br>
+-f_regression: F-value 회귀<br>
+-mutual_info_regression: 상호정보량(mutual information) 회귀<br>
 
 ```python
 from sklearn.feature_selection import SelectKBest
@@ -315,14 +315,14 @@ print('Selected features: ', [X_names[i] for i in sel_chi2.get_support(indices=T
 일반적으로 래퍼 방법은 필터 방법보다 예측 정확도가 높음<br>
 <br>
 💠 변수 선택을 위한 알고리즘<br>
-전진 선택법(Forward Selection): 모형을 가장 많이 향상시키는 변수를 하나씩 점진적으로 추가하는 방법<br>
-후진 제거법(Backward Elimination): 모두 포함된 상태에서 시작하여 가장 적은 영향을 주는 변수부터 하나씩 제거<br>
-단계적 방법(Stepwise Method): 전진선택과 후향제거의 결합/ 각 단계에서 최상의 속성을 선택하고 나머지 속성 중 최악의 속성을 제거하는 과정을 실행<br>
-의사결정트리<br>
+-전진 선택법(Forward Selection): 모형을 가장 많이 향상시키는 변수를 하나씩 점진적으로 추가하는 방법<br>
+-후진 제거법(Backward Elimination): 모두 포함된 상태에서 시작하여 가장 적은 영향을 주는 변수부터 하나씩 제거<br>
+-단계적 방법(Stepwise Method): 전진선택과 후향제거의 결합/ 각 단계에서 최상의 속성을 선택하고 나머지 속성 중 최악의 속성을 제거하는 과정을 실행<br>
+-의사결정트리<br>
 <br>
 💠 래퍼기법의 종류<br>
-RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용<br>
-SFS(Sequential Feature Selection): 그리디 알고리즘(Greedy Algorithm)으로 빈 부분 집합에서 특성 변수를 하나씩 추가하는 방법 /전진 선택, 후진 제거 사용<br>
+-RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용<br>
+-SFS(Sequential Feature Selection): 그리디 알고리즘(Greedy Algorithm)으로 빈 부분 집합에서 특성 변수를 하나씩 추가하는 방법 /전진 선택, 후진 제거 사용<br>
 
 ```python
 # RFE(Recursive Feature Elimination) 적용
