@@ -321,7 +321,7 @@ print('Selected features: ', [X_names[i] for i in sel_chi2.get_support(indices=T
 의사결정트리<br>
 <br>
 💠 래퍼기법의 종류<br>
-RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용
+RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용<br>
 SFS(Sequential Feature Selection): 그리디 알고리즘(Greedy Algorithm)으로 빈 부분 집합에서 특성 변수를 하나씩 추가하는 방법 /전진 선택, 후진 제거 사용<br>
 
 ```python
@@ -417,7 +417,7 @@ print(f'{X_selected[:5] = }')
 ## 3-3. 임베디드 기법(Embedded Method)
 임베디드 기법은 모델의 정확도에 기여하는 변수를 학습함<Br>
 SelectFromModel<br>
-  의사결정나무 기반 알고리즘에서 변수를 선택하는 기법<br>
+->의사결정나무 기반 알고리즘에서 변수를 선택하는 기법<br>
 ```python
 from sklearn.feature_selection import SelectFromModel
 from sklearn import tree
