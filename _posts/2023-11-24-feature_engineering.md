@@ -1,3 +1,88 @@
+# 1.피쳐엔지니어링
+## 1-1. 피쳐(feature)
+데이터모델(특히, 인공지능)에서 예측을 수행하는 데 사용되는 입력변수를 의미한다. <br>
+통계학에서는 독립변수라고 한다. <br>
+<br>
+💠피쳐의 유형
+-속성에 따라 범주형(범주나 순위가 있는 변수), 수치형(수치로 표현되는 변수)로 나뉜다.
+<br>
+<br>
+인과관계에 따라 독립변수(다른 변수에 영향을 받지 않고 종속변수에 영향을 주는 변수), 종속변수(독립 변수로부터 영향을 받는 변수)로 나뉜다.
+<br>
+<br>
+머신러닝에서의 입력: 변수(Feature), 속성(Attribute), 예측변수(Predictor), 차원(Dimension), 관측치(Observation), 독립변수(Independent Variable)<br>
+머신러닝에서의 출력: 라벨(Label), 클래스(Class), 목푯값(Target), 반응(Response), 종속변수(Dependent Variable)<br>
+<br>
+
+## 1-2. 피쳐 엔지니어링(Feature Engineering)
+피쳐 엔지니어링은 머신러닝 알고리즘의 성능을 향상시키기 위하여 데이터에 대한 도메인 지식을 활용하여 변수를 조합하거나 새로운 변수를 만드는 과정을 말한다.
+<br>
+💠피쳐추출(feature extraction)
+피쳐들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
+고차원의 원본 피쳐 공간을 저차원의 새로운 피쳐 공간으로 투영<br>
+PCA(주성분 분석), LDA(선형 판별 분석) 등<br>
+
+💠피쳐 선택(feature selection)<br>
+피쳐 중 타겟에 가장 관련성이 높은 피쳐만을 선정하여 피쳐의 수를 줄이는 방법<br>
+관련없거나 중복되는 피쳐들을 필터링하고 간결한 subset을 생성<br>
+모델 단순화, 훈련 시간 축소, 차원의 저주 방지, 과적합(Over-fitting)을 줄여 일반화해주는 장점이 있음<br>
+Filter, Wrapper, Embedded 메서드<br>
+![png](https://drive.google.com/uc?id=1gjZXN4-EPa_tRuIkgRismbiFpfs9ODiN)
+![png](https://drive.google.com/uc?id=1m9NRuVkNnJKL0gjt7lHR8ABRJ49uD0u6)
+# 2. 피쳐 추출
+## 2-1.피쳐 추출(Feature Extraction)<br>
+변수들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
+주성분 분석(Principal Component Analysis, PCA)<br>
+<br>
+변수들의 공분산 행렬이나 상관행렬을 이용<br>
+원래 데이터 특징을 잘 설명해주는 성분을 추출하기 이하여 고차원 공간의 표본들을 선형 연관성이 없는 저차원 공간으로 변환하는 기법<br>
+행의 수와 열의 수가 같은 정방행렬에서만 사용<br>
+<br>
+선형판별분석(Linear Discriminant Analysis, LDA)
+<br>
+데이터의 Target값 클래스끼리 최대한 분리할 수 있는 축을 찾음<br>
+특정 공간상에서 클래스 분리를 최대화하는 축을 찾기 위해 클래스 간 분산(between-class scatter)과 클래스 내부 분산(within-class scatter)의 비율을 최대화하는 방식으로 차원을 축소<br>
+특이값 분해(Singular Value Decomposition)<br>
+<br>
+M X N 차원의 행렬데이터에서 특이값을 추출하고 이를 통해 주어진 데이터 세트를 효과적으로 축약할 수 있는 기법<br>
+요인분석(Factor Analysis)<br>
+<br>
+데이터 안에 관찰할 수 있는 잠재적인 변수(Latent Variable)가 존재한다고 가정<br>
+모형을 세운 뒤 관찰 가능한 데이터를 이용하여 해당 잠재 요인을 도출하고 데이터 안의 구조를 해석하는 기법<br>
+주로 사회과학이나 설문 조사 등에서 많이 활용<br>
+독립성분분석(Independent Component Analysis)<br>
+<br>
+주성분 분석과는 달리 다변량의 신호를 통계적으로 독립적인 하부성분으로 분리하여 차원을 축소하는 기법<br>
+독립 성분의 분포는 비정규 분포를 따르게 되는 차원축소 기법<br>
+다차원 척도법(Multi-Dimensional Scaling)<br>
+<br>
+개체들 사이의 유사성, 비유사성을 측정하여 2차원 또는 3차원 공간상에 점으로 표현하여 개체들 사이의 집단화를 시각적으로 표현하는 분석 방법<br>
+<br>
+## 2-2 주성분 분석
+💠 주성분 분석(Principal Component Analysis)<br>
+<br>
+가장 널리 사용되는 차원(변수) 축소 기법 중 하나<br>
+원 데이터의 분산(variance)을 최대한 보존하면서 서로 직교하는 새 기저(축)를 찾아, 고차원 공간의 표본들을 선형 연관성이 없는 저차원 공간으로 변환하는 기법<br>
+PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변수, 즉 주성분(principal component, PC)들을 만들어 냄<br>
+주성분의 개수를 증가시킴에 따라 원 데이터의 분산의 보존수준이 높아짐<br>
+💠 PCA 절차<br>
+<br>
+학습 데이터셋에서 분산이 최대인 축(axis)을 찾음<br>
+첫번째 축과 직교(orthogonal)하면서 분산이 최대인 두 번째 축을 찾음<br>
+첫 번째 축과 두 번째 축에 직교하고 분산을 최대한 보존하는 세 번째 축을 찾음<br>
+1~3과 같은 방법으로 데이터셋의 차원(특성 수)만큼의 축을 찾음<br>
+<br>
+## 2-3 선형판별분석
+💠 선형판별분석(Linear Discriminant Analysis, LDA)<br>
+<br>
+입력 데이터 세트를 저차원 공간으로 투영(projection)해 차원을 축소하는 기법<br>
+데이터의 Target값 클래스끼리 최대한 분리할 수 있는 축을 찾음 → 지도 학습<br>
+PCA는 Target값을 사용하지 않으므로 비지도 학습<br>
+💠 LDA 절차<br>
+<br>
+특정 공간상에서 클래스 분리를 최대화하는 축을 찾기 위해 클래스 간 분산(between-class scatter)과 클래스 내부 분산(within-class scatter)의 비율을 최대화하는 방식으로 차원을 축소<br>
+SVM 같은 다른 분류 알고리즘을 적용하기 전에 차원을 축소시키는 데 사용<br>
+## 2-4. Scikit-Learn으로 PCA와 LDA 수행하기
 ```python
 from sklearn import datasets
 from sklearn.decomposition import PCA
@@ -91,6 +176,7 @@ plt.show()
     
 
 
+# 3. 피쳐 선택 기법
 
 ```python
 from sklearn import datasets
