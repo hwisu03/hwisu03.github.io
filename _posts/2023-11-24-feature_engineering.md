@@ -309,6 +309,8 @@ print('Selected features: ', [X_names[i] for i in sel_chi2.get_support(indices=T
     
 
 ## 3-2. 래퍼 기법(Wrapper Method)
+모든 피쳐 배정 (-> subset 생성 -> 학습 알고리즘 -> 성능평가)-()안에서는 최적의 subset을 선택<br>
+<br>
 예측 정확도 측면에서 가장 좋은 성능을 보이는 하위 집합을 선택하는 기법<br>
 검색 가능한 방법으로 하위 집합을 반복해서 선택하여 테스트하는 것이므로 탐욕 알고리즘(Greedy Algorithm)에 속함<br>
 반복하여 선택하는 방법으로 시간이 오래 걸리고 부분집합의 수가 기하급수적으로 늘어 과적합의 위험이 발생할 수 있음<br>
