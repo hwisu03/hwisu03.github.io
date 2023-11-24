@@ -189,30 +189,30 @@ plt.show()
 
 
 # 3. 피쳐 선택 기법
-종속변수 활용여부에 따라
-Supervised: 종속변수를 활용하여 선택
-Unsupervised: 독립변수들만을 이용해서 선택(종속변수인 y가 없음)
-
-선택 메커니즘에 따라
-Filter: 통계적인 방법으로 선택
-Wrapper: 모델을 활용하여 선택
-Embedded: 모델 훈련 과정에서 자동으로 선택
-Hybrid: Filter + Wrapper
-
+종속변수 활용여부에 따라<br>
+Supervised: 종속변수를 활용하여 선택<br>
+Unsupervised: 독립변수들만을 이용해서 선택(종속변수인 y가 없음)<br>
+<br>
+선택 메커니즘에 따라<br>
+Filter: 통계적인 방법으로 선택<br>
+Wrapper: 모델을 활용하여 선택<br>
+Embedded: 모델 훈련 과정에서 자동으로 선택<br>
+Hybrid: Filter + Wrapper<br>
+<br>
 ## 3-1. 필터기법(Filter Method)
-모든 피쳐 배정 -> 최적의 subset 선택 -> 학습 알고리즘 -> 성능평가
-
--데이터의 통계적 측정 방법을 사용하여 변수들의 상관관계를 알아냄
--계산속도가 빠르고 변수 간 상관관계를 알아내는 데 적합하여 래퍼 기법(Wrapper Method)을 사용하기 전에 전처리하는 데 사용
--특정 모델링 기법에 의존하지 않고 데이터의 통계적 특성부터 변수를 택하는 기법
-
-💠 필터기법의 종류
-
--분산 기반 선택(Variance-based Selection): 분산이 낮은 변수를 제거하는 방법
--정보 소득(Information Gain): 가장 정보 소득이 높은 속성을 선택하여 데이터를 더 잘 구분하게 되는 것
--카이제곱 검정(Chi-Square Test): 카이제곱 분포$χ_2$에 기초한 통계적 방법으로 관찰된 빈도가 기대되는 빈도와 의미있게 다른지 여부를 검증하기 위해 사용되는 검증 방법
--피셔 스코어(Fisher Score): 최대 가능성 방정식을 풀기 위해 통계에 사용되는 뉴턴(Newton)의 방법
--상관계수(Correlation Coefficient): 두 변수 사이의 통계적 관계를 표현하기 위해 특정한 상관관계의 정도를 수치적으로 나타낸 계수
+모든 피쳐 배정 -> 최적의 subset 선택 -> 학습 알고리즘 -> 성능평가<br>
+<br>
+-데이터의 통계적 측정 방법을 사용하여 변수들의 상관관계를 알아냄<br>
+-계산속도가 빠르고 변수 간 상관관계를 알아내는 데 적합하여 래퍼 기법(Wrapper Method)을 사용하기 전에 전처리하는 데 사용<br>
+-특정 모델링 기법에 의존하지 않고 데이터의 통계적 특성부터 변수를 택하는 기법<br>
+<br>
+💠 필터기법의 종류<br>
+<br>
+-분산 기반 선택(Variance-based Selection): 분산이 낮은 변수를 제거하는 방법<br>
+-정보 소득(Information Gain): 가장 정보 소득이 높은 속성을 선택하여 데이터를 더 잘 구분하게 되는 것<br>
+-카이제곱 검정(Chi-Square Test): 카이제곱 분포$χ_2$에 기초한 통계적 방법으로 관찰된 빈도가 기대되는 빈도와 의미있게 다른지 여부를 검증하기 위해 사용되는 검증 방법<br>
+-피셔 스코어(Fisher Score): 최대 가능성 방정식을 풀기 위해 통계에 사용되는 뉴턴(Newton)의 방법<br>
+-상관계수(Correlation Coefficient): 두 변수 사이의 통계적 관계를 표현하기 위해 특정한 상관관계의 정도를 수치적으로 나타낸 계수<br>
 
 ```python
 from sklearn import datasets
@@ -246,22 +246,21 @@ print(f'{X_selected[:5] = }')
            [4.6, 1.5, 0.2],
            [5. , 1.4, 0.2]])
     
-💠 Scikit-Learn 제공 피쳐 선택 메서드
-
-SelectKBest(): 고정된 k개의 피쳐 선택기
-SelectPercentile(): 분위수 기반 선택기
-SelectFpr(): False positive rate 기반 선택기
-SelectFdr(): 추정된 False discovery rate 기반 선택기
-SelectFwe(): familiy-wise error rate 기반 선택기
-GenericUnivariateSelect(): 단변량 피쳐 선택기
-💠 Scikit-Learn 제공 피쳐 선택 기준
-
-f_classif: ANOVA F-value 분류
-mutual_info_classif: 상호정보량(mutual information) 분류
-chi2: 카이제곱 분류
-f_regression: F-value 회귀
-mutual_info_regression: 상호정보량(mutual information) 회귀
-
+💠 Scikit-Learn 제공 피쳐 선택 메서드<br>
+<br>
+SelectKBest(): 고정된 k개의 피쳐 선택기<br>
+SelectPercentile(): 분위수 기반 선택기<br>
+SelectFpr(): False positive rate 기반 선택기<br>
+SelectFdr(): 추정된 False discovery rate 기반 선택기<br>
+SelectFwe(): familiy-wise error rate 기반 선택기<br>
+GenericUnivariateSelect(): 단변량 피쳐 선택기<br>
+💠 Scikit-Learn 제공 피쳐 선택 기준<br>
+<br>
+f_classif: ANOVA F-value 분류<br>
+mutual_info_classif: 상호정보량(mutual information) 분류<br>
+chi2: 카이제곱 분류<br>
+f_regression: F-value 회귀<br>
+mutual_info_regression: 상호정보량(mutual information) 회귀<br>
 
 ```python
 from sklearn.feature_selection import SelectKBest
