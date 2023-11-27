@@ -42,12 +42,13 @@ use_math : True
 -Filter, Wrapper, Embedded 메서드<br>
 ![png](https://drive.google.com/uc?id=1gjZXN4-EPa_tRuIkgRismbiFpfs9ODiN)
 ![png](https://drive.google.com/uc?id=1m9NRuVkNnJKL0gjt7lHR8ABRJ49uD0u6)<br>
-사진을 보면 Feature Engineering의 방법이 엄청나게 많은데, 이는 dominant한 방법이 없다는 것을 뜻한다.<br>
+사진을 보면 Feature Engineering의 방법이 엄청나게 많은데, 상황에 따라 방법마다다의 결과가 달라지기 때문이다.<br>
+이는 dominant한 방법이 없다는 것을 뜻한다.<br>
 # 2. 피쳐 추출
 ## 2-1.피쳐 추출(Feature Extraction)<br>
 변수들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
 <br>
-주성분 분석(Principal Component Analysis, PCA)<br>
+주성분 분석(Principal Component Analysis, PCA):직교좌표계를 찾음<br>
 -변수들의 공분산 행렬이나 상관행렬을 이용<br>
 -원래 데이터 특징을 잘 설명해주는 성분을 추출하기 이하여 고차원 공간의 표본들을 선형 연관성이 없는 저차원 공간으로 변환하는 기법<br>
 -행의 수와 열의 수가 같은 정방행렬에서만 사용<br>
@@ -55,12 +56,14 @@ use_math : True
 선형 판별 분석(Linear Discriminant Analysis, LDA)<br>
 -데이터의 Target값 클래스끼리 최대한 분리할 수 있는 축을 찾음<br>
 -특정 공간상에서 클래스 분리를 최대화하는 축을 찾기 위해 클래스 간 분산(between-class scatter)과 클래스 내부 분산(within-class scatter)의 비율을 최대화하는 방식으로 차원을 축소<br>
+-분류를 하는 분석이므로 지도학습<br>
 <br>
 특이값 분해(Singular Value Decomposition)<br>
 -M X N 차원의 행렬데이터에서 특이값을 추출하고 이를 통해 주어진 데이터 세트를 효과적으로 축약할 수 있는 기법<br>
 <br>
 요인 분석(Factor Analysis)<br>
 -데이터 안에 관찰할 수 있는 잠재적인 변수(Latent Variable)가 존재한다고 가정<br>
+잠재변수는 주성분과 달리 설명할 수 있는 의미를 가지고 있음
 -모형을 세운 뒤 관찰 가능한 데이터를 이용하여 해당 잠재 요인을 도출하고 데이터 안의 구조를 해석하는 기법<br>
 -주로 사회과학이나 설문 조사 등에서 많이 활용<br>
 <br>
@@ -70,7 +73,9 @@ use_math : True
 <br>
 다차원 척도법(Multi-Dimensional Scaling)<br>
 -개체들 사이의 유사성, 비유사성을 측정하여 2차원 또는 3차원 공간상에 점으로 표현하여 개체들 사이의 집단화를 시각적으로 표현하는 분석 방법<br>
+-클러스터링과 비슷<br>
 <br>
+
 ## 2-2 주성분 분석
 💠 주성분 분석(Principal Component Analysis)<br>
 <br>
@@ -80,7 +85,7 @@ PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변
 주성분의 개수를 증가시킴에 따라 원 데이터의 분산의 보존수준이 높아짐<br>
 <br>💠 PCA 절차
 <br>
-학습 데이터셋에서 분산이 최대인 축(axis)을 찾음<br>
+학습 데이터셋에서 분산이 최대인 축(axis)을 찾음-> 분산이 크다 = 설명력이 좋다<br>
 첫번째 축과 직교(orthogonal)하면서 분산이 최대인 두 번째 축을 찾음<br>
 첫 번째 축과 두 번째 축에 직교하고 분산을 최대한 보존하는 세 번째 축을 찾음<br>
 1~3과 같은 방법으로 데이터셋의 차원(특성 수)만큼의 축을 찾음<br>
