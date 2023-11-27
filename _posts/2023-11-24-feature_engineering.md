@@ -268,8 +268,21 @@ f_regression: F-value 회귀<br>
 mutual_info_regression: 상호정보량(mutual information) 회귀<br>
 <br>
 <br>
+#### F value, 상호정보량, $\chi ^2$ -test
+
 F-value: 두 모집단의 분산의 비율<br>
-ANOVA, Regression에서는 $\frac{\chi^2 _1 (n_1)}{\chi^2 _2 (n_2)}$
+ANOVA, Regression에서는 $\frac{\chi^2 _1 (n_1)}{\chi^2 _2 (n_2)}$ <br>
+F-value가 크면 모형이 잘 설명하고 있다는 것을 의미한다.<br>
+<br>
+상호정보량: 하나의 확률변수가 다른 확률변수에 대해 제공하는 정보의 양<br>
+두 확률변수가 공유하는 엔트로피<br>
+- 두 확률변수가 독립이라면, 상호정보량은 0<br>
+- 두 확률변수의 상관관계가 강할수록 상호 정보량이 커짐<br>
+<br>
+$\chi ^2$ -test: 범주형 데이터에서 두 요인간 독립성 검정에 사용<br>
+$\chi ^2$ -value가 크면 두 요인간 독립이 아니라는 의미(상관관계가 있음)이다
+
+
 
 ```python
 from sklearn.feature_selection import SelectKBest
