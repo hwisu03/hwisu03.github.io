@@ -269,7 +269,7 @@ mutual_info_regression: 상호정보량(mutual information) 회귀<br>
 <br>
 <br>
 F-value: 두 모집단의 분산의 비율<br>
-ANOVA, Regression에서는 $\chi^2 _1 (n_1) \over \chi^2 _2 (n_2), \frac{\chi^2 _1 (n_1)}{\chi^2 _2 (n_2)}$
+ANOVA, Regression에서는 $\frac{\chi^2 _1 (n_1)}{\chi^2 _2 (n_2)}$
 
 ```python
 from sklearn.feature_selection import SelectKBest
