@@ -63,7 +63,7 @@ use_math : True
 <br>
 요인 분석(Factor Analysis)<br>
 -데이터 안에 관찰할 수 있는 잠재적인 변수(Latent Variable)가 존재한다고 가정<br>
-잠재변수는 주성분과 달리 설명할 수 있는 의미를 가지고 있음
+잠재변수는 주성분과 달리 설명할 수 있는 의미를 가지고 있음<br>
 -모형을 세운 뒤 관찰 가능한 데이터를 이용하여 해당 잠재 요인을 도출하고 데이터 안의 구조를 해석하는 기법<br>
 -주로 사회과학이나 설문 조사 등에서 많이 활용<br>
 <br>
@@ -85,7 +85,7 @@ PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변
 주성분의 개수를 증가시킴에 따라 원 데이터의 분산의 보존수준이 높아짐<br>
 <br>💠 PCA 절차
 <br>
-학습 데이터셋에서 분산이 최대인 축(axis)을 찾음-> 분산이 크다 = 설명력이 좋다<br>
+학습 데이터셋에서 분산이 최대인 축(axis)을 찾음 → 분산이 크다 = 설명력이 좋다<br>
 첫번째 축과 직교(orthogonal)하면서 분산이 최대인 두 번째 축을 찾음<br>
 첫 번째 축과 두 번째 축에 직교하고 분산을 최대한 보존하는 세 번째 축을 찾음<br>
 1~3과 같은 방법으로 데이터셋의 차원(특성 수)만큼의 축을 찾음<br>
@@ -266,6 +266,10 @@ mutual_info_classif: 상호정보량(mutual information) 분류<br>
 chi2: 카이제곱 분류<br>
 f_regression: F-value 회귀<br>
 mutual_info_regression: 상호정보량(mutual information) 회귀<br>
+<br>
+<br>
+F-value: 두 모집단의 분산의 비율<br>
+ANOVA, Regression에서는 $\chi^2 _1 (n_1) \over \chi^2 _2 (n_2), \frac{\chi^2 _1 (n_1)}{\chi^2 _2 (n_2)}$
 
 ```python
 from sklearn.feature_selection import SelectKBest
