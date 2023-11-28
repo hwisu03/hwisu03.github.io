@@ -1,6 +1,5 @@
 ---
-title: pp- feature engineering
-layout:single
+title: pp-feature engineering
 use_math : True
 ---
 # 1.피쳐엔지니어링
