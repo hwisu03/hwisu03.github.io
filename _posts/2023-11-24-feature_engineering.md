@@ -6,13 +6,13 @@ use_math : True
 데이터모델(특히, 인공지능)에서 예측을 수행하는 데 사용되는 입력변수를 의미한다. <br>
 통계학에서는 독립변수라고 한다. <br>
 <br>
-상관관계: 독립변수<->종속변수<br>
-인과관계: 독립변수->종속변수<br>
+*상관관계: 독립변수<->종속변수*<br>
+*인과관계: 독립변수->종속변수*<br>
 <br>
-인과관계가 되기 위한 조건<br>
-1. x, y가 상관관계<br>
-2. 시간적 선후관계（x가 먼저)<br>
-3. 비허위적 관계(non-spurious)<br>
+*인과관계가 되기 위한 조건*<br>
+*1. x, y가 상관관계* <br>
+*2. 시간적 선후관계（x가 먼저)* <br>
+*3. 비허위적 관계(non-spurious)* <br>
 <br>
 💠피쳐의 유형<br>
 -속성에 따라 범주형(범주나 순위가 있는 변수), 수치형(수치로 표현되는 변수)로 나뉜다.
@@ -42,8 +42,8 @@ use_math : True
 -Filter, Wrapper, Embedded 메서드<br>
 ![png](https://drive.google.com/uc?id=1gjZXN4-EPa_tRuIkgRismbiFpfs9ODiN)
 ![png](https://drive.google.com/uc?id=1m9NRuVkNnJKL0gjt7lHR8ABRJ49uD0u6)<br>
-사진을 보면 Feature Engineering의 방법이 엄청나게 많은데, 상황에 따라 방법마다다의 결과가 달라지기 때문이다.<br>
-이는 dominant한 방법이 없다는 것을 뜻한다.<br>
+*사진을 보면 Feature Engineering의 방법이 엄청나게 많은데, 상황에 따라 방법마다다의 결과가 달라지기 때문이다.* <br>
+*이는 dominant한 방법이 없다는 것을 뜻한다.* <br>
 # 2. 피쳐 추출
 ## 2-1.피쳐 추출(Feature Extraction)<br>
 변수들 사이에 내재한 특성이나 관계를 분석하여 이들을 잘 표현할 수 있는 새로운 선형 혹은 비선형 결합 변수를 만들어 데이터를 줄이는 방법<br>
@@ -73,7 +73,7 @@ use_math : True
 <br>
 다차원 척도법(Multi-Dimensional Scaling)<br>
 -개체들 사이의 유사성, 비유사성을 측정하여 2차원 또는 3차원 공간상에 점으로 표현하여 개체들 사이의 집단화를 시각적으로 표현하는 분석 방법<br>
--클러스터링과 비슷<br>
+*-클러스터링과 비슷* <br>
 <br>
 
 ## 2-2 주성분 분석
@@ -85,7 +85,7 @@ PCA는 기존의 변수를 조합하여 서로 연관성이 없는 새로운 변
 주성분의 개수를 증가시킴에 따라 원 데이터의 분산의 보존수준이 높아짐<br>
 <br>💠 PCA 절차
 <br>
-학습 데이터셋에서 분산이 최대인 축(axis)을 찾음 → 분산이 크다 = 설명력이 좋다<br>
+학습 데이터셋에서 분산이 최대인 축(axis)을 찾음 *→ 분산이 크다 = 설명력이 좋다* <br>
 첫번째 축과 직교(orthogonal)하면서 분산이 최대인 두 번째 축을 찾음<br>
 첫 번째 축과 두 번째 축에 직교하고 분산을 최대한 보존하는 세 번째 축을 찾음<br>
 1~3과 같은 방법으로 데이터셋의 차원(특성 수)만큼의 축을 찾음<br>
@@ -348,6 +348,29 @@ print('Selected features: ', [X_names[i] for i in sel_chi2.get_support(indices=T
 -RFE(Recursive Feature Elimination): SVM(Support Vector Machine)을 사용하여 재귀적으로 제거하는 방법/ 전진 선택, 후진 제거, 단계적 방법 사용<br>
 -SFS(Sequential Feature Selection): 그리디 알고리즘(Greedy Algorithm)으로 빈 부분 집합에서 특성 변수를 하나씩 추가하는 방법 /전진 선택, 후진 제거 사용<br>
 
+*optimization algorithm: 최적화 알고리즘*<br>
+*최적화 알고리즘은 loss function이 최소가 되는 점을 찾음* <br>
+*최소화 방법* br>
+*1) 전역최적해(global) - 성능이 가장 좋지만 시간이 오래걸림* <br>
+*: 모든 x값들 중 y값이 최소가 되는 값* <br>
+*->모두 조사* <br>
+
+*2) 유사(지역(local))최적해(pseudo)* <br>
+*:특정 범위의 x값 중 y값이 최소가 되는 값* <br>
+*-> greedy 휴리스틱(기울기 하강법 등): 지역최적해로 빠짐* <br>
+*-> meta 휴리스틱: 확률적 요소 포함* <br>
+
+SVC(Support Vector Classification)는 분류를 위한 서포트 벡터 머신<br>
+오차 계산 시, margin 안쪽에 있는 데이터를 기준으로 오차 계산<br>
+SVR(Support Vector Regression)는 회귀를 위한 서포트 벡터 머신<br>
+오차 계산 시, margin 안쪽에 있는 데이터는 오차로 계산하지 않음<br>
+<br>
+*svm = svc(classification)에서는 margin이 크면 좋음* <br>
+*soft margin에서는 margin안에 있는 점들을 일부 허용-svc에서 오차를 계산에 사용* <br>
+*svr(회귀)* <br>
+*hard margin에서는 margin안에 있는 점 허용 X* <br>
+*svr에서는 margin 바깥쪽에 있는 점들이 오차계산에 사용* <br>
+<br>
 ```python
 # RFE(Recursive Feature Elimination) 적용
 from sklearn.datasets import load_iris
